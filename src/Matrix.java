@@ -44,12 +44,13 @@ public class Matrix {
 	}
 	public void readMatrix()
 	{
-		System.out.println("Input scanning matrix 1");
+		System.out.println("Input scanning matrix ");
 		for(int i=0;i<row;i++)
 		{
 			for(int j=0;j<col;j++)
 				arr[i][j]=sc.nextInt();
 		}
+		
 	}
 	public void display()
 	{
@@ -62,15 +63,16 @@ public class Matrix {
 		}
 		
 	}
-	public void add(int d[][])
-	{int res[][]=new int [row][col];
+	public Matrix add( Matrix m)
+	{//int res[][]=new int [row][col];
+		Matrix m1=new Matrix (m.arr.length,m.arr[0].length);
 		for(int i=0;i<row;i++)
 		{
 			for(int j=0;j<col;j++)
-				res[i][j]=arr[i][j]+d[i][j];
+				m1.arr[i][j]=this.arr[i][j]+m.arr[i][j];
 		
 		}
-		display(); 
+		return m1; 
 	}
 	public void scalar()
 	{
@@ -102,19 +104,19 @@ int p = 0, q = 0, x = arr[0][0]; // 'x' is storing the 1st main diagonal element
 			System.out.println("The matrix is not scalar");
 		
 	}
-	public void multiply(int d[][])
+	public Matrix multiply(Matrix m)
 	{
-		int x[][]=null;
-		x=new int[row][d[0].length];
+		Matrix m1=new Matrix (m.arr.length,m.arr[0].length);
+		//m1= new int[row][m.arr.length];
 		int i, j, k; 
         for (i = 0; i < row; i++) 
         { 
-            for (j = 0; j < d[0].length; j++) 
+            for (j = 0; j < m1.arr[0].length; j++) 
             { 
-                x[i][j] = 0; 
+                m1.arr[i][j] = 0; 
                 for (k = 0; k < col; k++) 
-                    x[i][j] += arr[i][k]  
-                                * d[k][j]; 
+                    m1.arr[i][j] += arr[i][k]  
+                                * m.arr[k][j]; 
             } 
         } 
 		//System.out.println(d[0].length);
@@ -128,8 +130,7 @@ int p = 0, q = 0, x = arr[0][0]; // 'x' is storing the 1st main diagonal element
 				}
 			}
 		}*/
-		define(x);
-		display();
+		return m1;
 
 	}
 	public void finalize()

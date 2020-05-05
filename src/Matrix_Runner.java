@@ -13,11 +13,26 @@ public class Matrix_Runner {
 		Scanner sc = new Scanner(System.in);
 		Matrix p=new Matrix(3,3);
 		Matrix q=new Matrix(p);
-		//Matrix r=new Matrix();
 		Matrix s=new Matrix();
-
-		p.readMatrix();//Read 1st matrix
-		int d[][]= new int[3][3];
+		//p.readMatrix();
+		q.readMatrix();
+		s=p.add(q);
+		System.out.println("Addition of both matrices:");
+		s.display();
+		
+		 System.out.println("\nCheck if the first matrix is scalar?");
+		  s.scalar();
+		  
+		Matrix x=new Matrix();
+		x=p.multiply(q);
+		System.out.println("Multiplication of both matrices:");
+		x.display(); 
+		
+		p=null;q=null;s=null;
+		System.gc();
+		
+		//p.readMatrix();//Read 1st matrix
+		/*int d[][]= new int[3][3];
 		
 		System.out.println("Input scanning matrix 2:");//Read 2nd matrix
 		for(int i=0;i<3;i++)
@@ -40,7 +55,7 @@ public class Matrix_Runner {
 		   
 	    p.multiply(d);
 		p=null;q=null;s=null;
-		System.gc();
+		System.gc();*/
 
 	}
 
